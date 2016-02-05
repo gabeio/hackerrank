@@ -17,9 +17,9 @@ func main() {
 	var err error
 	var s string
 	var eol bool = false
-	java := regexp.MustCompile(`(java|import\ (java).*;|System\.)`)
+	java := regexp.MustCompile(`(java|import\ (java).*;|System\.|throws|class)`)
 	c := regexp.MustCompile(`(\#include[\ ]?[\<\"]\w+(\.h)?[\>\"]|cin\ ?>>|cout\ ?<<|system\(|using namespace)`)
-	python := regexp.MustCompile(`((\#\ .*)|[\^\ \t]print\ .*|[\^\ \t]print\(.*\)|\w+\[\d+\:\d+\])`)
+	python := regexp.MustCompile(`((\#[^(include)]\ ?.*)|^?[\ \t]?print\ .*|^?[\ \t]?print\(.*\)|\w+\[\d+\:\d+\])`)
 	loop := true
 	bio := bufio.NewReader(os.Stdin)
 infinite:
